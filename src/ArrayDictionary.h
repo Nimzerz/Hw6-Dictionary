@@ -124,6 +124,10 @@ public:
 
     bool contain(KeyType const &key) override {
         // homework
+        if (!isEmpty()) {
+            ValueType value;
+            return get(key, value);
+        }
         return false;
     }
 

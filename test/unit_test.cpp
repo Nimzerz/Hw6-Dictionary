@@ -70,9 +70,54 @@ TEST(dict, array_dict_add_get) {
     ASSERT_EQ(val, 4);
 }
 
-TEST(dict, contains) {
+TEST(dict, contains_set1) {
     // homework
-    ASSERT_TRUE(false); // placeholder
+    ArrayDictionary<int, int> emptyDictionary;
+    ASSERT_FALSE(emptyDictionary.contain(-1));
+    ASSERT_FALSE(emptyDictionary.contain(0));
+    ASSERT_FALSE(emptyDictionary.contain(1));
+}
+
+TEST(dict, contains_set2) {
+    // homework
+    ArrayDictionary<int, int> hashTable(1);
+    hashTable.add(0, 103);
+    ASSERT_FALSE(hashTable.contain(2));
+    ASSERT_TRUE(hashTable.contain(0));
+}
+
+TEST(dict, contains_set3) {
+    // homework
+    ArrayDictionary<int, int> hashTable(2);
+    hashTable.add(0, 103);
+    hashTable.add(1, 105);
+    ASSERT_TRUE(hashTable.contain(0));
+    ASSERT_TRUE(hashTable.contain(1));
+    ASSERT_FALSE(hashTable.contain(2));
+    ASSERT_FALSE(hashTable.contain(3));
+}
+
+TEST(dict, contains_set4) {
+    // homework
+    ArrayDictionary<int, int> hashTable(3);
+    hashTable.add(0, 103);
+    hashTable.add(1, 105);
+    ASSERT_FALSE(hashTable.contain(3));
+    hashTable.add(2, 206);
+    ASSERT_TRUE(hashTable.contain(1));
+}
+
+TEST(dict, contains_set5) {
+    // homework
+    ArrayDictionary<int, int> hashTable(3);
+    hashTable.add(0, 103);
+    hashTable.add(1, 105);
+    hashTable.add(2, 206);
+    hashTable.add(4, 407);
+    ASSERT_TRUE(hashTable.contain(1));
+    ASSERT_TRUE(hashTable.contain(4));
+    ASSERT_FALSE(hashTable.contain(7));
+    ASSERT_FALSE(hashTable.contain(8));
 }
 
 TEST(dict, remove) {
