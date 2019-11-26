@@ -1,3 +1,0 @@
-/home/nima/Desktop/homework6/dictionary/lib/googletest/CMakeFiles/rebuild_cache.dir
-/home/nima/Desktop/homework6/dictionary/lib/googletest/CMakeFiles/googletest.dir
-/home/nima/Desktop/homework6/dictionary/lib/googletest/CMakeFiles/edit_cache.dir
