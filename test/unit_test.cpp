@@ -124,6 +124,7 @@ TEST(dict, remove_empty) {
     // homework
     ArrayDictionary<int, int> emptyDictionary;
     ASSERT_FALSE(emptyDictionary.remove(5));
+    ASSERT_FALSE(emptyDictionary.contain(5));
 }
 
 TEST(dict, remove_keyExists_noCollision) {
@@ -132,6 +133,7 @@ TEST(dict, remove_keyExists_noCollision) {
     hashTable.add(0, 103);
     hashTable.add(1, 105);
     ASSERT_TRUE(hashTable.remove(0));
+    ASSERT_FALSE(hashTable.contain(0));
 }
 
 TEST(dict, remove_keyDoesntExist_noCollision) {
@@ -140,6 +142,7 @@ TEST(dict, remove_keyDoesntExist_noCollision) {
     hashTable.add(1, 105);
     hashTable.add(2, 206);
     ASSERT_FALSE(hashTable.remove(0));
+    ASSERT_FALSE(hashTable.contain(0));
 }
 
 TEST(dict, remove_keyExists_collision_keyInCollision) {
@@ -149,6 +152,7 @@ TEST(dict, remove_keyExists_collision_keyInCollision) {
     hashTable.add(0, 104);
     hashTable.add(1, 105);
     ASSERT_TRUE(hashTable.remove(0));
+    ASSERT_FALSE(hashTable.contain(0));
 }
 
 TEST(dict, remove_keyDoesntExist_collision) {
@@ -158,4 +162,5 @@ TEST(dict, remove_keyDoesntExist_collision) {
     hashTable.add(0, 104);
     hashTable.add(1, 105);
     ASSERT_TRUE(hashTable.remove(2));
+    ASSERT_FALSE(hashTable.contain(2));
 }
