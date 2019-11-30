@@ -137,16 +137,14 @@ public:
 
     bool remove(KeyType const &key) override {
         // homework
-        if (contain(key)) {
-            int hashedKey = hashFunc(key);
-            Entry<KeyType, ValueType> *ptr = entries[hashedKey];
-            while (ptr != nullptr) {
-                if (ptr->key == key) {
-                    deleteEntry(ptr);
-                    return true;
-                }
-                ptr = ptr->next;
+        int hashedKey = hashFunc(key);
+        Entry<KeyType, ValueType> *ptr = entries[hashedKey];
+        while (ptr != nullptr) {
+            if (ptr->key == key) {
+                deleteEntry(ptr);
+                return true;
             }
+            ptr = ptr->next;
         }
         return false;
     }

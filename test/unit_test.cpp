@@ -161,6 +161,6 @@ TEST(dict, remove_keyDoesntExist_collision) {
     hashTable.add(0, 103);
     hashTable.add(0, 104);
     hashTable.add(1, 105);
-    ASSERT_TRUE(hashTable.remove(2));
+    ASSERT_FALSE(hashTable.remove(2));
     ASSERT_FALSE(hashTable.contain(2));
 }
