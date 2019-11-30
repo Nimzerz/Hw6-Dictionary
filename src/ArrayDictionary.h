@@ -122,11 +122,19 @@ public:
         }
     }
 
+    // returns true if the dictionary contains an entry with the given key,
+    // otherwise returns false
     bool contain(KeyType const &key) override {
         // homework
         if (!isEmpty()) {
-            ValueType value;
-            return get(key, value);
+            int hashedKey = hashFunc(key);
+            Entry<KeyType, ValueType> *ptr = entries[hashedKey];
+            while (ptr != nullptr) {
+                if (ptr->key == key) {
+                    return true;
+                }
+                ptr = ptr->next;
+            }
         }
         return false;
     }
@@ -135,17 +143,19 @@ public:
         // not implemented
     }
 
+    // returns true if a entires for the given key were removed,
+    // otherwise returns false
     bool remove(KeyType const &key) override {
         // homework
         int hashedKey = hashFunc(key);
         Entry<KeyType, ValueType> *ptr = entries[hashedKey];
         while (ptr != nullptr) {
             if (ptr->key == key) {
-                deleteEntry(ptr);
+                deleteEntry(ptr); // delete all entries of given key
                 return true;
             }
             ptr = ptr->next;
         }
-        return false;
+        return false; // doesn't contain the key
     }
 };
